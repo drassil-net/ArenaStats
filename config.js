@@ -4,6 +4,8 @@
 (function () {
     'use strict';
 
+    var app = angular.module('arenastats');
+
     var QueryString = function () {
         // This function is anonymous, is executed immediately and 
         // the return value is assigned to QueryString!
@@ -42,8 +44,6 @@
         return "";
     }
 
-    var app = angular.module('arenastats');
-    
     var realm = QueryString.realm || getCookie("realm");
 
     switch (realm) {
