@@ -27,20 +27,39 @@
         return query_string;
     }();
 
-    var app = angular.module('arenastats');
+    function getCookie(cname) {
+        var name = cname + "=";
+        var ca = document.cookie.split(';');
+        for (var i = 0; i < ca.length; i++) {
+            var c = ca[i];
+            while (c.charAt(0) == ' ') {
+                c = c.substring(1);
+            }
+            if (c.indexOf(name) == 0) {
+                return c.substring(name.length, c.length);
+            }
+        }
+        return "";
+    }
 
-    switch (QueryString.realm) {
+    var app = angular.module('arenastats');
+    
+    var realm = QueryString.realm || getCookie("realm");
+
+    switch (realm) {
         case "azerothshard":
+            document.cookie = "realm=azerothshard";
             /* Edit with path of TC-JSON-API */
             app.api = "http://azerothshard.org/modules/TC-JSON-API/public/index.php/";
 
             app.serverName = "AzerothShard";
-        break;
+            break;
         case "newage":
+            document.cookie = "realm=newage";
             /* Edit with path of TC-JSON-API */
             app.api = "http://server.wownewage.com/TC-JSON-API/public/index.php/";
 
             app.serverName = "NewAge";
-        break;
+            break;
     }
 }());
