@@ -47,13 +47,6 @@
     var realm = QueryString.realm || getCookie("realm");
 
     switch (realm) {
-        case "azerothshard":
-            document.cookie = "realm=azerothshard";
-            /* Edit with path of TC-JSON-API */
-            app.api = location.protocol+"//azerothshard.org/modules/TC-JSON-API/public/index.php/";
-
-            app.serverName = "AzerothShard";
-            break;
         case "newage":
             document.cookie = "realm=newage";
             /* Edit with path of TC-JSON-API */
@@ -61,5 +54,13 @@
 
             app.serverName = "NewAge";
             break;
+        case "azerothshard":
+        default:
+            document.cookie = "realm=azerothshard";
+            /* Edit with path of TC-JSON-API */
+            app.api = location.protocol+"//azerothshard.org/modules/TC-JSON-API/public/index.php/";
+
+            app.serverName = "AzerothShard";
+        break;
     }
 }());
