@@ -50,14 +50,14 @@
         case "azerothshard":
             document.cookie = "realm=azerothshard";
             /* Edit with path of TC-JSON-API */
-            app.api = "http://azerothshard.org/modules/TC-JSON-API/public/index.php/";
+            app.api = "//azerothshard.org/modules/TC-JSON-API/public/index.php/";
 
             app.serverName = "AzerothShard";
             break;
         case "newage":
             document.cookie = "realm=newage";
             /* Edit with path of TC-JSON-API */
-            app.api = "http://server.wownewage.com/TC-JSON-API/public/index.php/";
+            app.api = "//server.wownewage.com/TC-JSON-API/public/index.php/";
 
             app.serverName = "NewAge";
             break;
